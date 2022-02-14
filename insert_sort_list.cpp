@@ -11,22 +11,24 @@
 class Solution {
 public:
     ListNode* insertionSortList(ListNode* head) {
-    
-        std::multiset<int> mset;
         
-        ListNode* current = head;
+         ListNode* index {}; //= head -> next;
+         ListNode* current = head;
+        
         while(current)
         {
-            mset.insert(current->val);
-            current = current->next;
+            index = current;
+            while(index)
+            {
+                if(index -> val < current -> val)
+                {
+                    std::swap(index -> val, current -> val);
+                }
+                index = index -> next;
+            }
+            current = current -> next;
         }
         
-        current = head;
-        for(auto it = mset.begin(); it != mset.end(); ++it)
-        {
-            current->val = *it;
-            current = current->next;
-        }
         return head;
     }
 };

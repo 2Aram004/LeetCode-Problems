@@ -33,7 +33,7 @@ public:
         head = cur->next;
         cur->next = nullptr;
        
-	return head
+	return head;
 	}
 
 }; 
